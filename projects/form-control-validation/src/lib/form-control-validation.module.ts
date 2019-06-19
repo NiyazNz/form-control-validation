@@ -1,10 +1,21 @@
-import { NgModule } from '@angular/core';
-import { FormControlValidationComponent } from './form-control-validation.component';
+import {NgModule} from '@angular/core';
+import {FormControlValidationComponent} from './form-control-validation.component';
+import {FormControlValidationDirective} from './form-control-validation.directive';
+
 
 @NgModule({
-  declarations: [FormControlValidationComponent],
-  imports: [
+  declarations: [
+    FormControlValidationComponent,
+    FormControlValidationDirective,
   ],
-  exports: [FormControlValidationComponent]
+  imports: [],
+  entryComponents: [
+    FormControlValidationComponent,
+  ],
+  exports: [
+    FormControlValidationComponent,
+    FormControlValidationDirective,
+  ]
 })
-export class FormControlValidationModule { }
+export class FormControlValidationModule {
+}

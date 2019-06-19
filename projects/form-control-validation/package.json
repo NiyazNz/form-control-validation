@@ -1,6 +1,28 @@
 {
-  "name": "@nz/form-control-validation",
-  "version": "0.0.1",
+  "name": "@enzedd/form-control-validation",
+  "version": "1.0.0",
+  "description": "",
+  "license": "MIT",
+  "author": "Niyaz Batyrshin <Niyaz.Batyrshin@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://gitlab.com/Enzedd/form-control-validation.git"
+  },
+  "bugs": {
+    "url": "https://gitlab.com/Enzedd/form-control-validation/issues"
+  },
+  "homepage": "https://gitlab.com/Enzedd/form-control-validation",
+  "keywords": [
+    "angular",
+    "ngx",
+    "reactive forms",
+    "form validation",
+    "form errors",
+    "input validation",
+    "input errors",
+    "javascript",
+    "typescript"
+  ],
   "peerDependencies": {
     "@angular/common": "^8.0.1",
     "@angular/core": "^8.0.1"

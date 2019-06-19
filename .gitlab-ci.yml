@@ -1,0 +1,20 @@
+image: node:10.16.0
+
+pages:
+  cache:
+    paths:
+      - node_modules/
+
+  stage: deploy
+  script:
+    - npm install -g @angular/cli
+    - npm install
+    - npm run lib:build
+    - ng build --base-href /form-control-validation/ --deploy-url /form-control-validation/ --prod
+    - mv dist/form-control-validation-app public
+  artifacts:
+    paths:
+      - public
+  only:
+    - master
+    - pages

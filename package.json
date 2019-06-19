@@ -1,6 +1,29 @@
 {
   "name": "form-control-validation-app",
-  "version": "0.0.0",
+  "version": "1.0.0",
+  "private": true,
+  "description": "",
+  "license": "MIT",
+  "author": "Niyaz Batyrshin <Niyaz.Batyrshin@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://gitlab.com/Enzedd/form-control-validation.git"
+  },
+  "bugs": {
+    "url": "https://gitlab.com/Enzedd/form-control-validation/issues"
+  },
+  "homepage": "https://gitlab.com/Enzedd/form-control-validation/tree/master/projects/form-control-validation",
+  "keywords": [
+    "angular",
+    "ngx",
+    "reactive forms",
+    "form validation",
+    "form errors",
+    "input validation",
+    "input errors",
+    "javascript",
+    "typescript"
+  ],
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -10,9 +33,12 @@
     "e2e": "ng e2e",
     "lib:build": "ng build form-control-validation",
     "lib:watch": "ng build form-control-validation --watch",
-    "lib:publish": "npm run lib:build && cd dist/form-control-validation && npm publish"
+    "lib:test": "ng test form-control-validation",
+    "lib:copy-lic": "cp LICENSE dist/form-control-validation/LICENSE",
+    "lib:copy-readme": "cp README.md dist/form-control-validation/README.md",
+    "lib:copy-files": "npm run lib:copy-lic && npm run lib:copy-readme",
+    "lib:publish": "npm run lib:build && npm run lib:copy-files && cd dist/form-control-validation && npm publish --access=public"
   },
-  "private": true,
   "dependencies": {
     "@angular/animations": "~8.0.1",
     "@angular/common": "~8.0.1",
