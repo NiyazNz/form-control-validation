@@ -18,6 +18,14 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "@nz/form-control-validation": [
+        "dist/form-control-validation"
+      ],
+      "@nz/form-control-validation/*": [
+        "dist/form-control-validation/*"
+      ]
+    }
   }
 }

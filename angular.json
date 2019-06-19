@@ -119,6 +119,41 @@
           }
         }
       }
+    },
+    "form-control-validation": {
+      "projectType": "library",
+      "root": "projects/form-control-validation",
+      "sourceRoot": "projects/form-control-validation/src",
+      "prefix": "nz",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/form-control-validation/tsconfig.lib.json",
+            "project": "projects/form-control-validation/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/form-control-validation/src/test.ts",
+            "tsConfig": "projects/form-control-validation/tsconfig.spec.json",
+            "karmaConfig": "projects/form-control-validation/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/form-control-validation/tsconfig.lib.json",
+              "projects/form-control-validation/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }},
   "defaultProject": "form-control-validation-app"
 }
