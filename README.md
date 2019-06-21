@@ -7,7 +7,8 @@ A simple directive to display angular form validation errors.
 ![form-control-validation](https://gitlab.com/Enzedd/form-control-validation/uploads/021f8e829c871927cb5de01c34b4876b/form-control-validation.png)
 * No messy HTML markup is required for field errors; instead, one directive is enough
 * Humanized messages for built-in angular validators
-* Customizable error messages
+* Globally customizable error messages for builtin and user validators
+* Per control customizable error messages
 * Custom component can be provided to render validation errors
 
 ## Examples/Demo
@@ -80,7 +81,17 @@ export function formControlErrorsFactory(): FormControlErrors {
 ### Inputs
 | Input  | Type | Default | Required | Description |
 | ------------- | ------------- | ------------- | ------------- | ------------- |
-| [nzFormControlValidation] | `IFormControlValidationComponent` |  FormControlValidationComponent | no | Custom component can be provided to render formControl humanized validation error 
+| [nzFormControlValidation] | IFormControlValidationComponent |  FormControlValidationComponent | yes (value not required) | Custom component can be provided to render formControl humanized validation error 
+| [minError] | string | null | no | Error message for Validators.min<sup>1</sup> |
+| [maxError] | string | null | no | Error message for Validators.max<sup>1</sup> |
+| [requiredError] | string | null | no | Error message for Validators.required<sup>1</sup> |
+| [requiredTrueError] | string | null | no | Error message for Validators.requiredTrue<sup>1</sup> |
+| [emailError] | string | null | no | Error message for Validators.email<sup>1</sup> |
+| [minlengthError] | string | null | no | Error message for Validators.minlength<sup>1</sup> |
+| [maxlengthError] | string | null | no | Error message for Validators.maxlength<sup>1</sup> |
+| [patternError] | string | null | no | Error message for Validators.pattern<sup>1</sup> |
+| [validatorErrors] | Object | null | no | Error messages for other validators. Has lower priority than more specific error messages and can be overwritten by them |
+<sup>1</sup> If error message not specified, message from global configuration will be used. See [configuration](#step-4-optional-configuration) section.
 
 ## Development
 Library location is under `projects/form-control-validation` directory of this repository.

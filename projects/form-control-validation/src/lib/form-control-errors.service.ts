@@ -6,6 +6,9 @@ export interface FormControlErrors {
 }
 
 
+/**
+ * Default error messages for builtin validators
+ */
 export function formControlErrorsFactory(): FormControlErrors {
   const _formErrors = {
     min: ({min, actual}) => `Expected is at least ${min} but got ${actual}`,

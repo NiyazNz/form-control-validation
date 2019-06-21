@@ -19,16 +19,67 @@ import {FormControlValidationComponent, IFormControlValidationComponent} from '.
 import {mapTo} from 'rxjs/operators';
 
 
+// TODO propagate validation and error messages to form controls if directive applied to form
+
 @Directive({
   selector: '[formControlName][nzFormControlValidation], [formGroup][nzFormControlValidation]'
 })
 export class FormControlValidationDirective implements OnInit, OnDestroy {
-  // tslint:disable-next-line:no-input-rename
+  /**
+   * Component, rendering error messages.
+   * By default FormControlValidationComponent is used.
+   */  // tslint:disable-next-line:no-input-rename
   @Input('nzFormControlValidation') componentClass?: Type<IFormControlValidationComponent>;
+  /**
+   * Error message for Validators.min.
+   * If not specified, message from global configuration is used.
+   */
+  @Input() minError?: string;
+  /**
+   * Error message for Validators.max.
+   * If not specified, message from global configuration is used.
+   */
+  @Input() maxError?: string;
+  /**
+   * Error message for Validators.required.
+   * If not specified, message from global configuration is used.
+   */
+  @Input() requiredError?: string;
+  /**
+   * Error message for Validators.requiredTrue.
+   * If not specified, message from global configuration is used.
+   */
+  @Input() requiredTrueError?: string;
+  /**
+   * Error message for Validators.email.
+   * If not specified, message from global configuration is used.
+   */
+  @Input() emailError?: string;
+  /**
+   * Error message for Validators.minlength.
+   * If not specified, message from global configuration is used.
+   */
+  @Input() minlengthError?: string;
+  /**
+   * Error message for Validators.maxlength.
+   * If not specified, message from global configuration is used.
+   */
+  @Input() maxlengthError?: string;
+  /**
+   * Error message for Validators.pattern.
+   * If not specified, message from global configuration is used.
+   */
+  @Input() patternError?: string;
+  /**
+   * Error messages for other validators.
+   * Has lower priority than more specific error messages and can be overwritten by them
+   */
+  @Input() validatorErrors?: { [key: string]: string } = {};
   private defaultComponentClass: Type<IFormControlValidationComponent> = FormControlValidationComponent;
   private componentRef: ComponentRef<IFormControlValidationComponent>;
   private control: AbstractControlDirective;
   private statusChangeSubscription: Subscription;
+  private errorMessages: { [key: string]: string };
 
   constructor(private resolver: ComponentFactoryResolver, private container: ViewContainerRef,
               private render: Renderer2,
@@ -38,6 +89,7 @@ export class FormControlValidationDirective implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
+    this.errorMessages = this.getErrorMessages();
     this.statusChangeSubscription = merge(
       this.control.statusChanges,
       this.formGroup.ngSubmit.pipe(mapTo('FORM_SUBMIT'))
@@ -73,7 +125,25 @@ export class FormControlValidationDirective implements OnInit, OnDestroy {
       );
     }
     this.componentRef.instance.name = this.formControl ? this.formControl.name : null;
+    this.componentRef.instance.errorMessages = this.errorMessages;
     this.componentRef.instance.errors = this.control.errors;
+  }
+
+  /**
+   * Collect user defined error messages
+   */
+  private getErrorMessages(): { [key: string]: string } {
+    return {
+      ...this.validatorErrors,
+      ...(this.minError && {min: this.minError}),
+      ...(this.maxError && {max: this.maxError}),
+      ...(this.requiredError && {required: this.requiredError}),
+      ...(this.requiredTrueError && {requiredTrue: this.requiredTrueError}),
+      ...(this.emailError && {email: this.emailError}),
+      ...(this.minlengthError && {minlength: this.minlengthError}),
+      ...(this.maxlengthError && {maxlength: this.maxlengthError}),
+      ...(this.patternError && {pattern: this.patternError}),
+    };
   }
 
 }
