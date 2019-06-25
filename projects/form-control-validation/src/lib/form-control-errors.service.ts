@@ -2,7 +2,7 @@ import {Inject, Injectable, InjectionToken} from '@angular/core';
 
 
 export interface FormControlErrors {
-  [key: string]: (args) => string;
+  [key: string]: string | ((args) => string);
 }
 
 
@@ -37,11 +37,23 @@ export class FormControlErrorsService {
   constructor(@Inject(FORM_CONTROL_ERRORS) private formControlErrors: FormControlErrors) {
   }
 
-  get(key: string, args) {
-    const errorMessageFn = this.formControlErrors[key];
-    if (errorMessageFn) {
-      return errorMessageFn(args);
+  /**
+   * Get messages from overrides or global configuration or return key as a fallback
+   */
+  get(key: string, args?, overrides?: FormControlErrors) {
+    let errorMessageOrFn;
+    if (overrides) {
+      errorMessageOrFn = overrides[key];
     }
-    return key;
+    if (!errorMessageOrFn) {
+      errorMessageOrFn = this.formControlErrors[key];
+    }
+    if (!errorMessageOrFn) {
+      return key;
+    }
+    if (errorMessageOrFn instanceof Function) {
+      return errorMessageOrFn(args || {});
+    }
+    return errorMessageOrFn;
   }
 }

@@ -17,6 +17,7 @@ import {merge, Subscription} from 'rxjs';
 import {AbstractControlDirective, FormControlName, FormGroupDirective} from '@angular/forms';
 import {FormControlValidationComponent, IFormControlValidationComponent} from './form-control-validation.component';
 import {mapTo} from 'rxjs/operators';
+import {FormControlErrors} from './form-control-errors.service';
 
 
 // TODO propagate validation and error messages to form controls if directive applied to form
@@ -74,7 +75,7 @@ export class FormControlValidationDirective implements OnInit, OnDestroy {
    * Error messages for other validators.
    * Has lower priority than more specific error messages and can be overwritten by them
    */
-  @Input() validatorErrors?: { [key: string]: string } = {};
+  @Input() validatorErrors?: FormControlErrors = {};
   private defaultComponentClass: Type<IFormControlValidationComponent> = FormControlValidationComponent;
   private componentRef: ComponentRef<IFormControlValidationComponent>;
   private control: AbstractControlDirective;

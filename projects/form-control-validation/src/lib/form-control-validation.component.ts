@@ -17,12 +17,12 @@ export interface IFormControlValidationComponent {
  */
 @Component({
   selector: 'nz-form-control-validation',
-  template: `<small class="form-text text-danger">{{firstErrorText}}</small>`,
+  template: `<small class="form-text text-danger">{{errorText}}</small>`,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class FormControlValidationComponent implements IFormControlValidationComponent {
   private _errors: ValidationErrors;
-  firstErrorText: string;
+  errorText: string;
   /**
    * User defined error messages
    */
@@ -39,7 +39,7 @@ export class FormControlValidationComponent implements IFormControlValidationCom
     this._errors = value;
 
     const [key, args] = Object.entries(this._errors)[0];
-    this.firstErrorText = this.errorMessages[key] ? this.errorMessages[key] : this.formControlErrorsService.get(key, args);
+    this.errorText = this.formControlErrorsService.get(key, args, this.errorMessages);
   }
 
   get errors(): ValidationErrors {
