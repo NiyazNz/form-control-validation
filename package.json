@@ -16,6 +16,12 @@
   "keywords": [
     "angular",
     "ngx",
+    "form",
+    "formControl",
+    "input",
+    "errors",
+    "validation",
+    "messages",
     "reactive forms",
     "form validation",
     "form errors",
@@ -37,7 +43,7 @@
     "lib:copy-lic": "cp LICENSE dist/form-control-validation/LICENSE",
     "lib:copy-readme": "cp README.md dist/form-control-validation/README.md",
     "lib:copy-files": "npm run lib:copy-lic && npm run lib:copy-readme",
-    "lib:publish": "npm run lib:build && npm run lib:copy-files && cd dist/form-control-validation && npm publish --access=public"
+    "publish": "npm run lib:build && npm run lib:copy-files && cd dist/form-control-validation && npm publish --access=public"
   },
   "dependencies": {
     "@angular/animations": "~8.0.1",
@@ -48,6 +54,7 @@
     "@angular/platform-browser": "~8.0.1",
     "@angular/platform-browser-dynamic": "~8.0.1",
     "@angular/router": "~8.0.1",
+    "prismjs": "^1.16.0",
     "rxjs": "~6.4.0",
     "tslib": "^1.9.0",
     "zone.js": "~0.9.1"

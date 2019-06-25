@@ -1,6 +1,9 @@
-[![npm version](https://img.shields.io/npm/v/@enzedd/form-control-validation.svg)](https://npmjs.com/package/@enzedd/form-control-validation "View on npm")
 # FormControlValidation
+
 A simple directive to display angular form validation errors.
+
+[![npm version](https://img.shields.io/npm/v/@enzedd/form-control-validation.svg)](https://npmjs.com/package/@enzedd/form-control-validation "View on npm")
+
 ```html
 <input type="text" formControlName="lastName" nzFormControlValidation>
 ```
@@ -46,13 +49,8 @@ export class AppModule {}
 
 ### Step 3: Add `nzFormControlValidation` directive to form control (input)
 ```html
- <form [formGroup]="form" (ngSubmit)="onSubmit()">
-    <div class="form-group">
-        <label for="first-name">First Name</label>
-        <input type="text" class="form-control" nzFormControlValidation
-               id="first-name" formControlName="firstName" placeholder="First name">
-    </div>
-    <button class="btn btn-primary" type="submit">Submit</button>
+<form [formGroup]="form">
+    <input type="text" formControlName="firstName" nzFormControlValidation>
 </form>
 ```
 [Add validators](https://angular.io/guide/form-validation#reactive-form-validation) to your form controls 
@@ -91,7 +89,8 @@ export function formControlErrorsFactory(): FormControlErrors {
 | [maxlengthError] | string | null | no | Error message for Validators.maxlength<sup>1</sup> |
 | [patternError] | string | null | no | Error message for Validators.pattern<sup>1</sup> |
 | [validatorErrors] | Object | null | no | Error messages for other validators. Has lower priority than more specific error messages and can be overwritten by them |
-<sup>1</sup> If error message not specified, message from global configuration will be used. See [configuration](#step-4-optional-configuration) section.
+
+<sup>1</sup> If error message not specified, message from global configuration is used. See [configuration](#step-4-optional-configuration) section.
 
 ## Development
 Library location is under `projects/form-control-validation` directory of this repository.

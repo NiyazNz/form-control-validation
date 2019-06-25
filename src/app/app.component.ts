@@ -1,5 +1,7 @@
-import {Component} from '@angular/core';
-import {FormBuilder, Validators} from '@angular/forms';
+import {Component, OnInit} from '@angular/core';
+import {Title} from '@angular/platform-browser';
+import {ActivatedRoute, NavigationEnd, Router} from '@angular/router';
+import {filter, map, pluck} from 'rxjs/operators';
 
 
 @Component({
@@ -7,18 +9,41 @@ import {FormBuilder, Validators} from '@angular/forms';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
-  form = this.fb.group({
-    firstName: ['', [Validators.required, Validators.minLength(3)]],
-    lastName: ['', [Validators.required, Validators.minLength(3)]],
-  }, /*{updateOn: 'blur'}*/);
+export class AppComponent implements OnInit {
+  projectName = '@enzedd/form-control-validation';
+  repository = 'https://gitlab.com/Enzedd/form-control-validation';
+  sourceUrlBase = 'https://gitlab.com/Enzedd/form-control-validation/tree/master/src/app/';
+  npmUrl = `https://www.npmjs.com/package/${this.projectName}`;
+  title: string;
+  exampleSourceUrl: string;
 
-  constructor(protected fb: FormBuilder) {
+  constructor(private router: Router, private activatedRoute: ActivatedRoute, private titleService: Title) {
   }
 
-  onSubmit() {
-    if (this.form.valid) {
-      alert('Form submitted');
-    }
+  ngOnInit() {
+    this.setTitle();
   }
+
+  private setTitle() {
+    this.router.events
+      .pipe(
+        filter((event) => event instanceof NavigationEnd),
+        map(() => this.activatedRoute),
+        map((route) => {
+          while (route.firstChild) {
+            route = route.firstChild;
+          }
+          return route;
+        }),
+        filter((route) => route.outlet === 'primary'),
+        pluck('snapshot', 'data')
+      )
+      .subscribe((event: { title: string, fileName: string }) => {
+        this.title = event.title;
+        this.titleService.setTitle(this.title);
+
+        this.exampleSourceUrl = `${this.sourceUrlBase}${event.fileName}`;
+      });
+  }
+
 }
