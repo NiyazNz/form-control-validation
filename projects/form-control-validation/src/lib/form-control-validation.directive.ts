@@ -80,7 +80,7 @@ export class FormControlValidationDirective implements OnInit, OnDestroy {
   private componentRef: ComponentRef<IFormControlValidationComponent>;
   private control: AbstractControlDirective;
   private statusChangeSubscription: Subscription;
-  private errorMessages: { [key: string]: string };
+  private errorMessages: FormControlErrors;
 
   constructor(private resolver: ComponentFactoryResolver, private container: ViewContainerRef,
               private render: Renderer2,
@@ -133,7 +133,7 @@ export class FormControlValidationDirective implements OnInit, OnDestroy {
   /**
    * Collect user defined error messages
    */
-  private getErrorMessages(): { [key: string]: string } {
+  private getErrorMessages(): FormControlErrors {
     return {
       ...this.validatorErrors,
       ...(this.minError && {min: this.minError}),

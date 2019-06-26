@@ -30,7 +30,6 @@ const EXAMPLE_HTML = `
               >
           </div>
           <button class="btn btn-primary" type="submit">Submit</button>
-          <pre>{{form.valid}}</pre>
       </form>
 
       <hr>

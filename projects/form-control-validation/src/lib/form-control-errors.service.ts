@@ -13,9 +13,9 @@ export function formControlErrorsFactory(): FormControlErrors {
   const _formErrors = {
     min: ({min, actual}) => `Expected is at least ${min} but got ${actual}`,
     max: ({max, actual}) => `Expected is at most ${max} but got ${actual}`,
-    required: (error) => `This field is required`,
-    requiredTrue: (error) => `This field is required`,
-    email: (error) => `Invalid email`,
+    required: 'This field is required',
+    requiredTrue: 'This field is required',
+    email: 'Invalid email',
     minlength: ({requiredLength, actualLength}) => `Expected length is at least ${requiredLength} but got ${actualLength}`,
     maxlength: ({requiredLength, actualLength}) => `Expected length is at most ${requiredLength} but got ${actualLength}`,
     pattern: ({requiredPattern, actualValue}) => `Value does not match a required pattern: ${requiredPattern}`,

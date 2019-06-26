@@ -1,11 +1,11 @@
 import {ChangeDetectionStrategy, Component, Input} from '@angular/core';
 import {ValidationErrors} from '@angular/forms';
-import {FormControlErrorsService} from './form-control-errors.service';
+import {FormControlErrors, FormControlErrorsService} from './form-control-errors.service';
 
 
 export interface IFormControlValidationComponent {
   name?: string;
-  errorMessages?: { [key: string]: string };
+  errorMessages?: FormControlErrors;
   errors: ValidationErrors;
 }
 
@@ -26,7 +26,7 @@ export class FormControlValidationComponent implements IFormControlValidationCom
   /**
    * User defined error messages
    */
-  @Input() errorMessages = {};
+  @Input() errorMessages: FormControlErrors = {};
   /**
    * Form control name
    */
