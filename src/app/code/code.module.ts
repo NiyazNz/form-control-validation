@@ -4,15 +4,15 @@ import {CodeComponent} from './code.component';
 
 
 @NgModule({
-  declarations: [
-    CodeComponent,
-  ],
-  imports: [
-    CommonModule
-  ],
-  exports: [
-    CodeComponent,
-  ]
+    declarations: [
+        CodeComponent,
+    ],
+    imports: [
+        CommonModule
+    ],
+    exports: [
+        CodeComponent,
+    ]
 })
 export class CodeModule {
 }

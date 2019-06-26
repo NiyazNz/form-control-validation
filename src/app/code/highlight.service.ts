@@ -8,14 +8,13 @@ import 'prismjs/components/prism-bash';
 // Unfortunately with webpack the only way of disabling it
 // is by simply forcing it to highlight no elements -> []
 prism.hooks.add('before-highlightall', (env) => {
-  env['elements'] = [];
+    env['elements'] = [];
 });
 
 
 @Injectable({providedIn: 'root'})
 export class HighlightService {
-
-  highlight(code: string, lang: string) {
-    return prism.highlight(code, prism.languages[lang], lang);
-  }
+    highlight(code: string, lang: string) {
+        return prism.highlight(code, prism.languages[lang], lang);
+    }
 }

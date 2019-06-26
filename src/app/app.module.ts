@@ -16,26 +16,26 @@ import {FormErrorComponent} from './examples/form-error.component';
 
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    HeaderComponent,
-    SidenavComponent,
-    SimpleComponent,
-    ErrorMessagesComponent,
-    FormErrorComponent,
-  ],
-  imports: [
-    BrowserModule,
-    FormsModule,
-    ReactiveFormsModule,
-    FormControlValidationModule,
-    CodeModule,
-    ErrorMessagesConfigurationModule,
-    CustomErrorModule,
-    AppRoutingModule
-  ],
-  exports: [],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        HeaderComponent,
+        SidenavComponent,
+        SimpleComponent,
+        ErrorMessagesComponent,
+        FormErrorComponent,
+    ],
+    imports: [
+        BrowserModule,
+        FormsModule,
+        ReactiveFormsModule,
+        FormControlValidationModule,
+        CodeModule,
+        ErrorMessagesConfigurationModule,
+        CustomErrorModule,
+        AppRoutingModule
+    ],
+    exports: [],
+    bootstrap: [AppComponent]
 })
 export class AppModule {
 }

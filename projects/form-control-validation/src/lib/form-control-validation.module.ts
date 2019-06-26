@@ -4,18 +4,18 @@ import {FormControlValidationDirective} from './form-control-validation.directiv
 
 
 @NgModule({
-  declarations: [
-    FormControlValidationComponent,
-    FormControlValidationDirective,
-  ],
-  imports: [],
-  entryComponents: [
-    FormControlValidationComponent,
-  ],
-  exports: [
-    FormControlValidationComponent,
-    FormControlValidationDirective,
-  ]
+    declarations: [
+        FormControlValidationComponent,
+        FormControlValidationDirective,
+    ],
+    imports: [],
+    entryComponents: [
+        FormControlValidationComponent,
+    ],
+    exports: [
+        FormControlValidationComponent,
+        FormControlValidationDirective,
+    ]
 })
 export class FormControlValidationModule {
 }
