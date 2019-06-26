@@ -17,10 +17,13 @@ describe('FormControlValidationComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(FormControlValidationComponent);
     component = fixture.componentInstance;
-    fixture.detectChanges();
   });
 
   it('should create', () => {
-    expect(component).toBeTruthy();
+    component.name = 'username';
+    component.errorMessages = {};
+    component.errors = {required: true};
+    fixture.detectChanges();
+    expect(fixture.nativeElement.textContent).toBe('This field is required');
   });
 });
