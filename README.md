@@ -3,6 +3,8 @@
 A simple directive to display angular form validation errors.
 
 [![npm version](https://img.shields.io/npm/v/@enzedd/form-control-validation.svg)](https://npmjs.com/package/@enzedd/form-control-validation "View on npm")
+[![Gitlab pipeline status](https://img.shields.io/gitlab/pipeline/Enzedd/form-control-validation.svg)](https://gitlab.com/Enzedd/form-control-validation/pipelines)
+[![coverage report](https://gitlab.com/Enzedd/form-control-validation/badges/master/coverage.svg)](https://gitlab.com/Enzedd/form-control-validation/commits/master)
 
 ```html
 <input type="text" formControlName="lastName" nzFormControlValidation>
