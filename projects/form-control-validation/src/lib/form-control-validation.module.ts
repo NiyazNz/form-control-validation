@@ -9,9 +9,6 @@ import {FormControlValidationDirective} from './form-control-validation.directiv
         FormControlValidationDirective,
     ],
     imports: [],
-    entryComponents: [
-        FormControlValidationComponent,
-    ],
     exports: [
         FormControlValidationComponent,
         FormControlValidationDirective,

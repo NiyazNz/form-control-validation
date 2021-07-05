@@ -12,7 +12,7 @@ describe('FormControlErrorsService', () => {
                 FormControlErrorsService
             ],
         });
-        service = TestBed.get(FormControlErrorsService);
+        service = TestBed.inject(FormControlErrorsService);
     });
 
     it('should contain error messages for angular builtin validators', () => {
@@ -59,7 +59,7 @@ describe('FORM_CONTROL_ERRORS', () => {
                 FormControlErrorsService
             ],
         });
-        service = TestBed.get(FormControlErrorsService);
+        service = TestBed.inject(FormControlErrorsService);
     });
 
     it('should get error message from provided factory', () => {

@@ -1,4 +1,4 @@
-import {async, ComponentFixture, TestBed} from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import {FormControlValidationComponent} from './form-control-validation.component';
 
@@ -7,7 +7,7 @@ describe('FormControlValidationComponent', () => {
     let component: FormControlValidationComponent;
     let fixture: ComponentFixture<FormControlValidationComponent>;
 
-    beforeEach(async(() => {
+    beforeEach(waitForAsync(() => {
         TestBed.configureTestingModule({
             declarations: [FormControlValidationComponent]
         })

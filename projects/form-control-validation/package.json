@@ -1,6 +1,6 @@
 {
     "name": "@enzedd/form-control-validation",
-    "version": "1.1.5",
+    "version": "1.2.0",
     "description": "A simple directive to display angular form validation errors",
     "license": "MIT",
     "author": "Niyaz Batyrshin <Niyaz.Batyrshin@gmail.com>",
@@ -29,9 +29,12 @@
         "javascript",
         "typescript"
     ],
+    "dependencies": {
+      "tslib": "^2.0.0"
+    },
     "peerDependencies": {
-        "@angular/common": "^8.0.1",
-        "@angular/core": "^8.0.1",
-        "@angular/forms": "^8.0.1"
+        "@angular/common": "^12.1.1",
+        "@angular/core": "^12.1.1",
+        "@angular/forms": "^12.1.1"
     }
 }

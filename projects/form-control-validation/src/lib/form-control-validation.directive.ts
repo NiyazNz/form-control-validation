@@ -125,7 +125,7 @@ export class FormControlValidationDirective implements OnInit, OnDestroy {
                 this.container.element.nativeElement.firstChild
             );
         }
-        this.componentRef.instance.name = this.formControl ? this.formControl.name : null;
+        this.componentRef.instance.name = this.formControl ? this.formControl.name.toString() : null;
         this.componentRef.instance.errorMessages = this.errorMessages;
         this.componentRef.instance.errors = this.control.errors;
     }
